@@ -1,8 +1,6 @@
-import Anthropic from "@anthropic-ai/sdk";
+import { GoogleGenerativeAI } from "@google/generative-ai"
 
-if (!process.env.ANTHROPIC_API_KEY) throw new Error('invalid Api')
+if (!process.env.GEMINI_API_KEY) throw new Error('Missing GEMINI_API_KEY')
 
-const clientAnthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
-
-
-export default clientAnthropic
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY)
+export default genAI
