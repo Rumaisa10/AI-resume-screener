@@ -77,11 +77,7 @@ export default function UploadForm() {
               </p>
               <p className="text-xs text-gray-400 mt-1">Accepts .pdf or .txt</p>
             </label>
-            {file && (
-              <p className="text-sm text-green-600 font-medium mt-2">
-                ✓ {file.name}
-              </p>
-            )}
+         {file && <p className="text-sm text-green-600 font-medium mt-2">✓ {file.name}</p>}
           </div>
 
           <div className="space-y-2">
@@ -90,6 +86,7 @@ export default function UploadForm() {
             </label>
             <textarea
               value={description}
+               id="jobDescription"  
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Paste the job description here..."
               className="w-full border border-gray-200 rounded-xl p-3 text-sm resize-none h-32 focus:outline-none focus:ring-2 focus:ring-black"
