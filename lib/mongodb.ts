@@ -1,8 +1,8 @@
 import { MongoClient } from 'mongodb'
 
-if (!process.env.MONGODB_URI) throw new Error('invalid URI')
+const uri = process.env.MONGODB_URI || ''
 
-const client = new MongoClient(process.env.MONGODB_URI)
-const clientPromise = client.connect()
+const client = new MongoClient(uri)
+const clientPromise = uri ? client.connect() : Promise.reject('Missing MONGODB_URI')
 
 export default clientPromise
